@@ -4,13 +4,16 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <style>
+        body {
+            margin: 0px;
+        }
     .year {
         display: grid;
         grid-template-columns: auto auto auto auto;
+        grid-gap: 0.1rem;
         /*grid-template-rows: auto auto auto auto auto auto;*/
         background-color: #242F41;
         /*padding: 10px;*/
-
     }
 
     @media screen and (max-width : 800px) {
@@ -20,6 +23,7 @@
             /* max-width: 500px; */
             display: grid;
             grid-template-columns: auto auto auto;
+            grid-gap: 0.1rem;
             /*grid-template-rows: 1fr auto auto auto;*/
             background-color: #242F41;
             /*padding: 10px;*/
