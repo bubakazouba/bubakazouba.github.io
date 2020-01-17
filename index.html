@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.year {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #242F41;
+  padding: 10px;
+}
+.month-dots {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  /* background-color: #242F41; */
+  padding: 10px;
+}
+.grid-item {
+/* background-color: rgba(255, 255, 255, 0.8); */
+  /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+  /* padding: 20px; */
+  font-size: 30px;
+  text-align: center;
+}
+.verybad {background-color: #EF2D5A;}
+.bad {background-color: #FFC132;}
+.normal {background-color: #06D6A0;}
+.good {background-color: #19C5FF;}
+.verygood {background-color: #1453E5;}
+.dot {
+  height: 25px;
+  width: 25px;
+  
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
+</head>
+<body>
+
+<h1>Grid Elements</h1>
+
+<p>A Grid Layout must have a parent element with the <em>display</em> property set to <em>grid</em> or <em>inline-grid</em>.</p>
+
+<p>Direct child element(s) of the grid container automatically becomes grid items.</p>
+
+<div class="year">
+
+<div class="month-dots">
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+<div class="month-dots">
+<div class="grid-item">  <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="verygood dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="good dot"></span></div>
+<div class="grid-item"> <span class="verybad dot"></span></div>
+<div class="grid-item"> <span class="bad dot"></span></div>
+<div class="grid-item"> <span class="normal dot"></span></div>
+</div>
+
+
+</div> <!-- end year -->
+
+</body>
+</html>
