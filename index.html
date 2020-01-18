@@ -7,7 +7,16 @@
     body {
         margin: 0px;
     }
+    .all-container {
+        display: grid;
+        grid-template-rows: 5vh auto;
+    }
     
+    .navbar {
+        color:white;
+        font-size: 7vw;
+        background-color: #505050;
+    }
     .body-container {
         display: grid;
         grid-template-rows: auto auto;
@@ -68,7 +77,7 @@
         }
     }
 
-    @media screen and (max-width : 800px) {
+    @media screen and (min-width : 400px) and (max-width : 800px) {
         .month-text {
             color: white;
             display: grid;
@@ -77,13 +86,32 @@
             margin-top: -5%;
         }
 
-        /* CSS that should be displayed if width is equal to or less than 800px goes here */
         .year {
             grid-template-columns: auto auto auto;
         }
 
         .dot {
             padding: 36%;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    }
+    
+    @media screen and (max-width : 400px) {
+        .month-text {
+            color: white;
+            display: grid;
+            padding-left: 3%;
+            padding-bottom: 5%;
+            margin-top: -5%;
+        }
+
+        .year {
+            grid-template-columns: auto auto auto;
+        }
+
+        .dot {
+            padding: 40%;
             border-radius: 50%;
             display: inline-block;
         }
@@ -136,6 +164,7 @@
 <body>
     <div class="all-container">
         <div class="navbar">
+            asfda
         </div>
         <div class="body-container">
             <div class="year-text">
