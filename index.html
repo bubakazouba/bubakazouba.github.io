@@ -1,3 +1,8 @@
+<!--
+    TODOS:
+    user id hardcoded
+    2019,2020,2021 hardcoded
+-->
 <!DOCTYPE html>
 <html>
 
@@ -198,7 +203,8 @@
     function setNavBarYear(year) {
         document.getElementById("navbar").innerHTML = "< " + year + " >";
     }
-    window.addEventListener('scroll', function(e) {
+    window.addEventListener('scroll', scrollListener);
+    function scrollListener(e) {
         let elements = {
             "year-text-2019": "2019",
             "year-text-2020": "2020",
@@ -213,7 +219,6 @@
             setNavBarYear(elements[lastElementAbove]);
             return;
         }
-        
 
         // if any are in then pick the first one
         for (let id in elements) {
@@ -222,7 +227,7 @@
                 return;
             }
         }
-    });
+    }
 
     const RATINGS_TO_EMOJI = {
         "verygood": "😃",
@@ -249,6 +254,7 @@
             populateYear("2019");
             populateYear("2020");
             populateYear("2021");
+            scrollListener();
         });
     });
 
@@ -400,7 +406,7 @@
 <body>
     <div class="all-container">
         <div class="navbar" id="navbar">
-            < 2019>
+            
         </div>
         <div class="under-navbar">
         </div>
