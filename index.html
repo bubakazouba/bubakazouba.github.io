@@ -1,6 +1,6 @@
 <!--
     TODOS:
-    user id hardcoded
+    remove USER_ID fallback
     2019,2020,2021 hardcoded
 -->
 <!DOCTYPE html>
@@ -11,6 +11,10 @@
     <style>
     body {
         margin: 0px;
+    }
+
+    .navbar-button {
+        cursor: pointer;
     }
 
     .under-navbar {
@@ -25,7 +29,6 @@
 
     .navbar {
         position: fixed;
-        display: block;
         width: 100%;
         color: white;
         font-size: 30px;
@@ -34,6 +37,7 @@
         display: grid;
         justify-items: center;
         align-items: center;
+        /*grid-template-columns: 1fr 1fr 1fr;*/
     }
 
     .body-container {
@@ -64,7 +68,7 @@
     }
 
     .year {
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: repeat(4, auto);
     }
 
     .dot {
@@ -114,7 +118,7 @@
         }
 
         .year {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(3, auto);
         }
 
         .dot {
@@ -134,7 +138,7 @@
         }
 
         .year {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(3, auto);
         }
 
         .dot {
@@ -152,7 +156,7 @@
 
     .month-dots {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto auto;
+        grid-template-columns: repeat(7, auto);
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -187,7 +191,7 @@
         let elem = document.getElementById(id);
         var bounding = elem.getBoundingClientRect();
         return (
-            bounding.top >= 0 &&
+            bounding.top >= elem.offsetHeight &&
             bounding.left >= 0 &&
             bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
@@ -197,12 +201,30 @@
         let elem = document.getElementById(id);
         var bounding = elem.getBoundingClientRect();
         return (
-            bounding.top < 0
+            bounding.top < elem.offsetHeight
         );
     };
-    function setNavBarYear(year) {
-        document.getElementById("navbar").innerHTML = "< " + year + " >";
+    function setNavBarYear(year, isFirst, isLast) {
+        let navbar = document.getElementById("navbar");
+        removeAllChildren(navbar);
+        
+        // let backButtonSpan = document.createElement("span");
+        // if(!isFirst) {
+        //     backButtonSpan.appendChild(document.createTextNode("<"));
+        // }
+        // backButtonSpan.setAttribute("class", "navbar-button");
+        // navbar.appendChild(backButtonSpan);
+        navbar.appendChild(document.createTextNode(year));
+        
+        // let forwardButtonSpan = document.createElement("span");
+        // if (!isLast) {
+        //     forwardButtonSpan.appendChild(document.createTextNode(">"));
+        // }
+        // forwardButtonSpan.setAttribute("class", "navbar-button");
+        // navbar.appendChild(forwardButtonSpan);
+
     }
+
     window.addEventListener('scroll', scrollListener);
     function scrollListener(e) {
         let elements = {
@@ -210,20 +232,21 @@
             "year-text-2020": "2020",
             "year-text-2021": "2021",
         }
-        // if none are in, then pick the maximum bounding.top thats above
+        // pick the maximum bounding.top thats above
         // get all elements that are above
         // pick the last one
         let elementsAbove = Object.keys(elements).filter(elemId => isAboveViewport(elemId));
         if (elementsAbove.length) {
             let lastElementAbove = elementsAbove[elementsAbove.length - 1];
-            setNavBarYear(elements[lastElementAbove]);
+            setNavBarYear(elements[lastElementAbove], elements[lastElementAbove] == "2019", elements[lastElementAbove] == "2021");
             return;
         }
 
-        // if any are in then pick the first one
+        // if none are above but any are in
+        // then pick the first one
         for (let id in elements) {
             if (isInViewport(id)) {
-                setNavBarYear(elements[id]);
+                setNavBarYear(elements[id], elements[id] == "2019", elements[id] == "2021");
                 return;
             }
         }
@@ -238,8 +261,10 @@
     };
 
     const WEEK_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    // let USER_ID = window.location.href.split("?")[1];
-    let USER_ID = "2836947292982732";
+    let USER_ID = window.location.href.split("?")[1];
+    if (!USER_ID) {
+        USER_ID = "2836947292982732";
+    }
     let currentYear;
     let currentMonth = "";
     let allNotes = {}; // {'YYYY-MM-DD': <note text>}
@@ -400,13 +425,24 @@
             return i;
         }
     }
+    function removeAllChildren(nodeOrId) {
+        let node;
+        if (typeof nodeOrId == 'string') {
+            let id = nodeOrId;
+            node = document.getElementById(id);
+        } else {
+            node = nodeOrId;
+        }
+        while (node.firstChild) {
+            node.removeChild(node.firstChild);
+        }
+    }
     </script>
 </head>
 
 <body>
     <div class="all-container">
         <div class="navbar" id="navbar">
-            
         </div>
         <div class="under-navbar">
         </div>
