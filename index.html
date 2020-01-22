@@ -1,35 +1,17 @@
-<!--
-    TODOS:
-    remove USER_ID fallback
-    2019,2020,2021 hardcoded
--->
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <style>
+    html {
+        height: 100%;
+    }
     body {
         margin: 0px;
     }
 
-    .navbar-button {
-        cursor: pointer;
-    }
-
-    .under-navbar {
-        color: white;
-        font-size: 30px;
-        background-color: #505050;
-        text-align: center;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-    }
-
     .navbar {
-        position: fixed;
-        width: 100%;
         color: white;
         font-size: 30px;
         background-color: #505050;
@@ -37,40 +19,22 @@
         display: grid;
         justify-items: center;
         align-items: center;
-        /*grid-template-columns: 1fr 1fr 1fr;*/
-    }
-
-    .body-container {
-        display: grid;
-        grid-template-rows: auto auto;
-        background-color: #242F41;
-    }
-
-    .year-text {
-        font-size: 3vw;
-        color: white;
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-
-    hr {
-        margin: 0;
-    }
-
-    .year {
-        padding-left: 10%;
-        padding-right: 10%;
-        display: grid;
-        grid-gap: 0.1rem;
-        grid-row-gap: 0.7rem;
-    }
-
-    .year {
-        grid-template-columns: repeat(4, auto);
     }
 
     .dot {
-        padding: 25%;
+        font-size: 4vw;
+        font-weight: bold;
+        font-family: monospace;
+        color: white;
+        text-align: center;
+        padding: 40%;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .dot {
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         display: inline-block;
     }
@@ -85,74 +49,104 @@
     .all-container {
         display: grid;
         grid-template-rows: 42px auto;
+        height: 100vh;
+        background-color: #405372;
+    }
+
+    .month-dots {
+        grid-column: 1/4;
+        max-width: 2000px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto;
+        align-items: center;
+        background-color: #242F41;
+        justify-items: center;
+    }
+
+    .body-container {
+        display: grid;
+        grid-template-columns: 1fr min(80vw, 100vh) 1fr;
+        grid-template-rows: auto 100%;
+    }
+
+    .notes-container {
+        grid-row: 2;
+        grid-column: 1/4;
+        display: grid;
+        display: grid;
+        grid-template-rows: 10% auto;
+    }
+
+    .notes-container-navbar {
+        justify-items: end;
+        display: grid;
+    }
+
+    #div-for-svg {
+        width: 36px;
+        height: 36px;
+        fill: white;
+        border-color: white;
+        border-style: solid;
+        padding: 4px;
+    }
+
+    .notes-container-text {
+        font-size: 8vw;
+        color: white;
+        margin-left: 2%;
     }
 
     @media screen and (min-width : 801px) and (max-width: 1200px) {
         .dot {
-            padding: 36%;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
+            display: inline-block;
+        }
+
+        .month-dots {
+            grid-column: 1/4;
         }
     }
 
     @media screen and (min-width : 1200px) and (max-width: 1400px) {
         .dot {
-            padding: 36%;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             display: inline-block;
         }
     }
 
     @media screen and (min-width : 400px) and (max-width : 800px) {
-        .month-text {
-            color: white;
-            display: grid;
-            padding-left: 3%;
-            padding-bottom: 5%;
-            margin-top: -5%;
-        }
-
-        .year {
-            grid-template-columns: repeat(3, auto);
-        }
-
         .dot {
-            padding: 36%;
+            font-size: 4vw;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: inline-block;
+        }
+
+        .month-dots {
+            grid-column: 1/4;
         }
     }
 
     @media screen and (max-width : 400px) {
-        .month-text {
-            color: white;
-            display: grid;
-            padding-left: 3%;
-            padding-bottom: 5%;
-            margin-top: -5%;
-        }
-
-        .year {
-            grid-template-columns: repeat(3, auto);
+        .month-dots {
+            grid-column: 1/4;
         }
 
         .dot {
-            padding: 40%;
+            font-size: 6vw;
+            /*padding: 80%;*/
+            width: 24px;
+            height: 24px;
+            /*padding: 0;*/
             border-radius: 50%;
             display: inline-block;
         }
-    }
-
-    .month-container {
-        display: grid;
-        grid-template-rows: 0.1fr 0.9fr;
-        margin-bottom: 0px;
-    }
-
-    .month-dots {
-        display: grid;
-        grid-template-columns: repeat(7, auto);
-        padding-left: 10px;
-        padding-right: 10px;
     }
 
     .verybad {
@@ -179,270 +173,74 @@
         background-color: black;
         border-color: white;
     }
+
+    .circle {
+        /*box-sizing: border-box;*/
+        background-color: grey;
+    }
     </style>
-    <script>
-    var isInViewport = function(id) {
-        let elem = document.getElementById(id);
-        var bounding = elem.getBoundingClientRect();
-        return (
-            bounding.top >= elem.offsetHeight &&
-            bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    };
-    var isAboveViewport = function(id) {
-        let elem = document.getElementById(id);
-        var bounding = elem.getBoundingClientRect();
-        return (
-            bounding.top < elem.offsetHeight
-        );
-    };
-    function setNavBarYear(year, isFirst, isLast) {
-        let navbar = document.getElementById("navbar");
-        removeAllChildren(navbar);
-        
-        // let backButtonSpan = document.createElement("span");
-        // if(!isFirst) {
-        //     backButtonSpan.appendChild(document.createTextNode("<"));
-        // }
-        // backButtonSpan.setAttribute("class", "navbar-button");
-        // navbar.appendChild(backButtonSpan);
-        navbar.appendChild(document.createTextNode(year));
-        
-        // let forwardButtonSpan = document.createElement("span");
-        // if (!isLast) {
-        //     forwardButtonSpan.appendChild(document.createTextNode(">"));
-        // }
-        // forwardButtonSpan.setAttribute("class", "navbar-button");
-        // navbar.appendChild(forwardButtonSpan);
-
-    }
-
-    window.addEventListener('scroll', scrollListener);
-    function scrollListener(e) {
-        let elements = {
-            "year-text-2019": "2019",
-            "year-text-2020": "2020",
-            "year-text-2021": "2021",
-        }
-        // pick the maximum bounding.top thats above
-        // get all elements that are above
-        // pick the last one
-        let elementsAbove = Object.keys(elements).filter(elemId => isAboveViewport(elemId));
-        if (elementsAbove.length) {
-            let lastElementAbove = elementsAbove[elementsAbove.length - 1];
-            setNavBarYear(elements[lastElementAbove], elements[lastElementAbove] == "2019", elements[lastElementAbove] == "2021");
-            return;
-        }
-
-        // if none are above but any are in
-        // then pick the first one
-        for (let id in elements) {
-            if (isInViewport(id)) {
-                setNavBarYear(elements[id], elements[id] == "2019", elements[id] == "2021");
-                return;
-            }
-        }
-    }
-
-    const RATINGS_TO_EMOJI = {
-        "verygood": "😃",
-        "good": "🙂",
-        "normal": "😶",
-        "bad": "😞",
-        "verybad": "😢",
-    };
-
-    const WEEK_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    let USER_ID = window.location.href.split("?")[1];
-    if (!USER_ID) {
-        USER_ID = "2836947292982732";
-    }
-    let currentYear;
-    let currentMonth = "";
-    let allNotes = {}; // {'YYYY-MM-DD': <note text>}
-    let allRatings = {}; // {'YYYY-MM-DD': rating}
-    const LIST_OF_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const LIST_OF_SHORT_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let getAllNotesPromise = getAllNotes();
-
-    window.addEventListener('load', function() {
-        getAllNotesPromise.then(() => {
-            console.log(allNotes, allRatings);
-            populateYear("2019");
-            populateYear("2020");
-            populateYear("2021");
-            scrollListener();
-        });
-    });
-
-    function populateYear(year) {
-        let yearTextDiv = document.createElement("div");
-        yearTextDiv.setAttribute("class", "year-text");
-        yearTextDiv.id = "year-text-" + year;
-        yearTextDiv.appendChild(document.createTextNode(year));
-        yearTextDiv.appendChild(document.createElement("hr"));
-        document.getElementById("body-container").appendChild(yearTextDiv);
-
-        let yearDiv = document.createElement("div");
-        yearDiv.id = "year-" + year;
-        yearDiv.setAttribute("class", "year");
-        document.getElementById("body-container").appendChild(yearDiv);
-        for (let i = 1; i <= 12; i++) {
-            let monthDiv = document.createElement("div");
-            monthDiv.setAttribute("class", "month-container");
-            monthDiv.id = "month-container-" + year + "-" + get2DigitFromInt(i);
-            let monthTextDiv = document.createElement("div");
-            monthTextDiv.setAttribute("class", "month-text");
-            monthDiv.appendChild(monthTextDiv);
-            let monthDotsDiv = document.createElement("div");
-            monthDotsDiv.setAttribute("class", "month-dots");
-            monthDiv.appendChild(monthDotsDiv);
-            document.getElementById("year-" + year).appendChild(monthDiv);
-
-            populateMonth("month-container-" + year + "-" + get2DigitFromInt(i), year + "-" + get2DigitFromInt(i));
-        }
-    }
-
-    function getYYYYMMFromDate(date) {
-        return date.split("-")[0] + "-" + date.split("-")[1];
-    }
-
-    // month-container-2020-01, 2020-01
-    function populateMonth(id, YYYYMM) {
-        let YYYY = YYYYMM.split("-")[0];
-        let MM = YYYYMM.split("-")[1];
-
-        function monthRatingsToList(monthRatings) {
-            let firstDayInMonth = YYYY + "-" + MM + "-" + "01";
-            let weekDayOfFirstDayInMonth = getWeekDayN(firstDayInMonth);
-            let numberOfEmptyDaysToInsertBefore = weekDayOfFirstDayInMonth;
-
-            let monthRatingsList = [];
-            for (let i = 0; i < numberOfEmptyDaysToInsertBefore; i++) {
-                monthRatingsList.push("none");
-            }
-
-            let daysInMonth = new Date(YYYY, MM, 0).getDate();
-            for (let i = 1; i <= daysInMonth; i++) {
-                let d = YYYY + "-" + MM + "-" + get2DigitFromInt(i);
-                if (!!monthRatings[d]) {
-                    monthRatingsList.push(monthRatings[d]);
-                } else {
-                    monthRatingsList.push("unknown");
-                }
-            }
-
-            // now fill in all the unknowns 
-            return monthRatingsList;
-        }
-        let monthText = LIST_OF_SHORT_MONTHS[parseInt(YYYYMM.split("-")[1]) - 1];
-        document.getElementById(id).getElementsByClassName("month-text")[0].appendChild(document.createTextNode(monthText));
-
-        let monthRatings = getRatingsForYYYYMM(YYYYMM);
-        let monthRatingsList = monthRatingsToList(monthRatings);
-        for (let i in monthRatingsList) {
-            let span = document.createElement("span");
-            if (monthRatingsList[i] != "none") {
-                span.setAttribute("class", monthRatingsList[i].toLowerCase() + " " + "dot");
-            }
-            let div = document.createElement("div");
-            div.appendChild(span);
-            document.getElementById(id).getElementsByClassName("month-dots")[0].appendChild(div);
-        }
-    }
-
-    function getAllNotes() {
-        let url = 'https://b.solutionbanks.com:3838/getusernotes';
-        let body = {
-            id: USER_ID,
-        };
-        return fetch(url, {
-                method: 'post',
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify(body)
-            })
-            .then(json => json.json())
-            .then(function(data) {
-                console.log('Request succeeded with JSON response', data);
-                allNotes = data.notes;
-                allRatings = data.ratings;
-            })
-            .catch(function(error) {
-                console.log('Request failed', error);
-            });
-    }
-
-    // '2019-12'
-    function getNotesForYYYYMM(YYYYMM) {
-        let notesForYYYYMM = {};
-        let allNotesDates = Object.keys(allNotes).sort();
-        for (let date of allNotesDates) {
-            if (getYYYYMMFromDate(date) == YYYYMM) {
-                notesForYYYYMM[date] = allNotes[date];
-            }
-        }
-        return notesForYYYYMM;
-    }
-
-    // '2019-12'
-    function getRatingsForYYYYMM(YYYYMM) {
-        let ratingsForYYYYMM = {};
-        let allRatingsDates = Object.keys(allRatings).sort();
-        for (let date of allRatingsDates) {
-            if (getYYYYMMFromDate(date) == YYYYMM) {
-                ratingsForYYYYMM[date] = allRatings[date];
-            }
-        }
-        return ratingsForYYYYMM;
-    }
-
-    function getWeekDay(dateYYYMMDD) {
-        return WEEK_DAYS[getWeekDayN(dateYYYMMDD)];
-    }
-
-    // 0: sunday ... 6: Saturday
-    function getWeekDayN(dateYYYMMDD) {
-        let tzdiff = (new Date()).getTimezoneOffset()
-        let n = (new Date((new Date(dateYYYMMDD)).getTime() + tzdiff * 60 * 1000)).getDay();
-        return n;
-    }
-
-    function get2DigitFromInt(i) {
-        i = "" + i;
-        if (i.length == 1) {
-            return "0" + i;
-        } else {
-            return i;
-        }
-    }
-    function removeAllChildren(nodeOrId) {
-        let node;
-        if (typeof nodeOrId == 'string') {
-            let id = nodeOrId;
-            node = document.getElementById(id);
-        } else {
-            node = nodeOrId;
-        }
-        while (node.firstChild) {
-            node.removeChild(node.firstChild);
-        }
-    }
-    </script>
 </head>
 
 <body>
     <div class="all-container">
-        <div class="navbar" id="navbar">
+        <div class="navbar">
+            January 2019
         </div>
-        <div class="under-navbar">
-        </div>
-        <div class="body-container" id="body-container">
-        </div>
-    </div>
+        <div class="body-container">
+            <div class="month-dots">
+                <div><span class="circle dot">S</span> </div>
+                <div><span class="circle dot">M</span> </div>
+                <div><span class="circle dot">T</span> </div>
+                <div><span class="circle dot">W</span> </div>
+                <div><span class="circle dot">R</span> </div>
+                <div><span class="circle dot">F</span> </div>
+                <div><span class="circle dot">S</span></div>
+                <div> </div>
+                <div> </div>
+                <div> <span class="good dot">1</span></div>
+                <div> <span class="normal dot">2</span></div>
+                <div> <span class="bad dot">3</span></div>
+                <div> <span class="normal dot">4</span></div>
+                <div> <span class="good dot">5</span></div>
+                <div> <span class="good dot">6</span></div>
+                <div> <span class="verybad dot">7</span></div>
+                <div> <span class="bad dot">8</span></div>
+                <div> <span class="normal dot">9</span></div>
+                <div> <span class="good dot">10</span></div>
+                <div> <span class="good dot">11</span></div>
+                <div> <span class="verybad dot">12</span></div>
+                <div> <span class="bad dot">13</span></div>
+                <div> <span class="normal dot">14</span></div>
+                <div> <span class="good dot">15</span></div>
+                <div> <span class="good dot">16</span></div>
+                <div> <span class="verybad dot">17</span></div>
+                <div> <span class="bad dot">18</span></div>
+                <div> <span class="normal dot">19</span></div>
+                <div> <span class="good dot">20</span></div>
+                <div> <span class="good dot">21</span></div>
+                <div> <span class="verybad dot">22</span></div>
+                <div> <span class="bad dot">23</span></div>
+                <div> <span class="normal dot">24</span></div>
+                <div> <span class="good dot">25</span></div>
+                <div> <span class="unknown dot">26</span></div>
+                <div> <span class="verybad dot">27</span></div>
+                <div> <span class="bad dot">28</span></div>
+                <div> <span class="normal dot">29</span></div>
+                <div> <span class="normal dot">30</span></div>
+                <div> <span class="normal dot">31</span></div>
+                <div> <span class="normal dot">32</span></div>
+                <div> <span class="normal dot">33</span></div>
+                <div> <span class="normal dot">34</span></div>
+            </div>
+            <div class="notes-container">
+                <div class="notes-container-navbar">
+                    <div id="div-for-svg"><svg>
+                            <path d="M32.9447655,1.61748153 C30.787932,-0.539160508 27.2911674,-0.539160508 25.1343338,1.61748153 L3.23904557,23.5108265 C3.0889925,23.6608663 2.98064739,23.8468582 2.92407791,24.0510656 L0.0447842944,34.4450357 C-0.073628247,34.871187 0.0467017832,35.3275381 0.359272582,35.6405603 C0.67232263,35.9531033 1.12871417,36.0734227 1.5549033,35.9555 L11.9497959,33.0759826 C12.1540215,33.019418 12.3400298,32.9110827 12.490083,32.7610428 L34.3848917,10.8672185 C36.5383694,8.70913831 36.5383694,5.21556022 34.3848917,3.05747996 L32.9447655,1.61748153 Z M5.91315488,24.3084821 L23.8327549,6.38999297 L29.6119567,12.1686818 L11.6918771,30.0871709 L5.91315488,24.3084821 Z M4.75875276,26.6247512 L9.3758819,31.2419499 L2.98927671,33.0112689 L4.75875276,26.6247512 Z M32.6494533,9.13193406 L31.3478746,10.4333974 L25.5681935,4.65422925 L26.8702516,3.35276592 C28.0682794,2.15484442 30.0108199,2.15484442 31.2088477,3.35276592 L32.6494533,4.79276435 C33.8455635,5.99212396 33.8455635,7.93305391 32.6494533,9.13193406 L32.6494533,9.13193406 Z" /></svg></div>
+                </div>
+                <div class="notes-container-text">Today I had a great day with my family, we ate a lot of chips, one of my cousins grew a beard drinking one.</div>
+            </div>
+        </div> <!-- end body-container-->
+    </div> <!-- all-container -->
 </body>
 
 </html>
